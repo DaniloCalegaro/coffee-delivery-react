@@ -77,4 +77,19 @@ export const QualityList = styled.ul`
   }
 `
 
-export const CoffeeListSection = styled.section``
+export const CoffeeListSection = styled.section`
+  ul {
+    margin-top: 3.3rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+
+    @media (min-width: 720px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1080px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+`

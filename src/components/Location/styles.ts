@@ -5,6 +5,8 @@ export const LocationContainer = styled.div`
   border-radius: 6px;
   padding: 0.5rem;
 
+  transition: filter 0.2s;
+
   a {
     display: flex;
     gap: 0.4rem;
@@ -17,5 +19,9 @@ export const LocationContainer = styled.div`
     svg {
       color: ${props => props.theme['purple']};
     }
+  }
+
+  &:hover {
+    filter: brightness(0.9);
   }
 `

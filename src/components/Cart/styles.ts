@@ -7,9 +7,15 @@ export const CartContainer = styled.div`
 
   position: relative;
 
+  transition: filter 0.2s;
+
   a {
     color: ${props => props.theme['yellow-dark']};
     display: flex;
+  }
+
+  &:hover {
+    filter: brightness(0.9);
   }
 `
 

@@ -29,7 +29,16 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Baloo 2', cursive;
   font-size: 3rem;
   line-height: 130%;
+  font-weight: 800;
+
   color: ${props => props.theme['base-title']};
+ }
+
+ h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 2rem;
+  line-height: 130%;
+  color: ${props => props.theme['base-subtitle']};
  }
 
  ul {

@@ -1,11 +1,48 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { HomeContainer, IntroSection, QualityList } from './styles'
+import {
+  CoffeeListSection,
+  HomeContainer,
+  IntroSection,
+  QualityList
+} from './styles'
+
+import listCoffeesJson from '../../../products.json'
 
 import ImgCoffeeDelivery from '../../assets/images/image-home.svg'
+import { CoffeeCard } from '../../components/CoffeeCard'
 
-import ImgIntroBackground from '../../assets/images/intro-background.svg'
+import ImgExpresso from '../../assets/images/expresso.svg'
+import { useEffect, useState } from 'react'
+
+interface ListCoffees {
+  id: number
+  image: string
+  typesCoffee: string[]
+  name: string
+  description: string
+  price: number
+}
 
 export function Home() {
+  const [coffees, setCoffees] = useState<ListCoffees[]>([])
+
+  useEffect(() => {
+    async function getCoffees() {
+      const data = listCoffeesJson.coffees.map(coffee => ({
+        id: coffee.id,
+        image: coffee.image,
+        typesCoffee: coffee.typesCoffee,
+        name: coffee.name,
+        description: coffee.description,
+        price: Number(coffee.price)
+      }))
+      setCoffees(data)
+    }
+    getCoffees()
+  }, [])
+
+  const expressoType = ['tradicional', 'com leite']
+
   return (
     <HomeContainer>
       <IntroSection>
@@ -48,6 +85,23 @@ export function Home() {
           alt="Copo de café com logo Coffee Delivery"
         />
       </IntroSection>
+
+      <CoffeeListSection>
+        <h2>Nossos cafés</h2>
+        <ul>
+          {coffees.map(coffee => (
+            <li key={coffee.id}>
+              <CoffeeCard
+                image={ImgExpresso}
+                typesCoffee={coffee.typesCoffee}
+                name={coffee.name}
+                description={coffee.description}
+                price={coffee.price}
+              />
+            </li>
+          ))}
+        </ul>
+      </CoffeeListSection>
     </HomeContainer>
   )
 }

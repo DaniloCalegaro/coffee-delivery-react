@@ -1,0 +1,12 @@
+{
+  "coffees": [
+    {
+      "id": 1,
+      "image":"../../assets/images/capuccino.svg",
+      "typesCoffee": ["tradicional","com leite"],
+      "name":"Capuccino",
+      "description":"Bebida com canela feita de doses iguais de café, leite e espuma",
+      "price":9.9
+    }
+  ]
+}
