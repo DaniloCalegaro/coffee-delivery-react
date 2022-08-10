@@ -2,6 +2,8 @@ import { MapPin, ShoppingCart } from 'phosphor-react'
 
 import { CartContainer, HeaderContainer } from './styles'
 import logo from '../../assets/images/logo.svg'
+import { Location } from '../Location'
+import { Cart } from '../Cart'
 
 export function Header() {
   return (
@@ -10,16 +12,11 @@ export function Header() {
       <CartContainer>
         <ul>
           <li>
-            <a href="#">
-              <MapPin size={20} />
-              <span>Batatais, SP</span>
-            </a>
+            <Location />
           </li>
 
           <li>
-            <a href="#">
-              <ShoppingCart size={20} />
-            </a>
+            <Cart amount={5} />
           </li>
         </ul>
       </CartContainer>
