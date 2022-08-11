@@ -40,7 +40,7 @@ export function CoffeeCard({
       <PriceAndQuantity>
         <Price>
           <span>R$</span>
-          <strong>{price}</strong>
+          <strong>{price.toFixed(2)}</strong>
         </Price>
         <InputQuantity>
           <div>

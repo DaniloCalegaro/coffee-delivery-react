@@ -37,6 +37,9 @@ export const TypeCoffee = styled.div`
     background: ${props => props.theme['yellow-light']};
     color: ${props => props.theme['yellow-dark']};
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.63rem;
+
     padding: 0.28rem 0.5rem;
     border-radius: 9999px;
     margin-left: 0.5rem;
@@ -55,7 +58,7 @@ export const PriceAndQuantity = styled.div`
 
 export const Price = styled.div`
   span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-right: 0.3rem;
   }
 

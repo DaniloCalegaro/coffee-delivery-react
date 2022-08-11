@@ -92,7 +92,7 @@ export function Home() {
           {coffees.map(coffee => (
             <li key={coffee.id}>
               <CoffeeCard
-                image={ImgExpresso}
+                image={coffee.image}
                 typesCoffee={coffee.typesCoffee}
                 name={coffee.name}
                 description={coffee.description}
