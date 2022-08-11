@@ -8,9 +8,7 @@ interface CartProps {
 export function Cart({ amount }: CartProps) {
   return (
     <CartContainer>
-      <a href="#">
-        <ShoppingCart size={19} />
-      </a>
+      <ShoppingCart size={19} />
 
       {!!amount && (
         <AmountCart>

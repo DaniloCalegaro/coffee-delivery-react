@@ -9,7 +9,7 @@ export const CartContainer = styled.div`
 
   transition: filter 0.2s;
 
-  a {
+  svg {
     color: ${props => props.theme['yellow-dark']};
     display: flex;
   }

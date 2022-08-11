@@ -4,10 +4,10 @@ import { LocationContainer } from './styles'
 export function Location() {
   return (
     <LocationContainer>
-      <a href="#">
+      <div>
         <MapPin size={19} />
         <span>Batatais, SP</span>
-      </a>
+      </div>
     </LocationContainer>
   )
 }

@@ -4,21 +4,19 @@ import { CartContainer, HeaderContainer } from './styles'
 import logo from '../../assets/images/logo.svg'
 import { Location } from '../Location'
 import { Cart } from '../Cart'
+import { NavLink } from 'react-router-dom'
 
 export function Header() {
   return (
     <HeaderContainer>
-      <img src={logo} alt="" />
+      <NavLink to="/" title="Coffee Delivery">
+        <img src={logo} alt="" />
+      </NavLink>
       <CartContainer>
-        <ul>
-          <li>
-            <Location />
-          </li>
-
-          <li>
-            <Cart amount={5} />
-          </li>
-        </ul>
+        <Location />
+        <NavLink to="/checkout" title="Checkout">
+          <Cart amount={5} />
+        </NavLink>
       </CartContainer>
     </HeaderContainer>
   )

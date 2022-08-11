@@ -5,9 +5,11 @@ export const LocationContainer = styled.div`
   border-radius: 6px;
   padding: 0.5rem;
 
+  cursor: pointer;
+
   transition: filter 0.2s;
 
-  a {
+  div {
     display: flex;
     gap: 0.4rem;
 
