@@ -1,44 +1,28 @@
 import { MapPin } from 'phosphor-react'
+import { CheckountAddress } from '../../components/FormAddress'
+import { Payment } from '../../components/Payment'
 import {
   CheckoutContainer,
-  InfoContainer,
-  SectionAddress,
+  InfoAddress,
+  InfoSummary,
+  SectionPayment,
   Summary
 } from './styles'
 
 export function Checkout() {
   return (
     <CheckoutContainer>
-      <InfoContainer>
+      <InfoAddress>
         <h2>Complete seu pedido</h2>
-        <SectionAddress>
-          <div className="aderressInfo">
-            <i>
-              <MapPin size={20} />
-            </i>
+        <CheckountAddress />
+      </InfoAddress>
 
-            <div>
-              <strong>Endereço da entrega</strong>
-              <span>Informe o endereço onde deseja receber seu pedido</span>
-            </div>
-          </div>
+      <Payment />
 
-          <form>
-            <input id="cep" type="text" placeholder="CEP" />
-            <input id="road" type="text" placeholder="Rua" />
-            <input id="number" type="text" placeholder="Número" />
-            <input id="complement" type="text" placeholder="Complemento" />
-            <input id="district" type="text" placeholder="Bairro" />
-            <input id="city" type="text" placeholder="Cidade" />
-            <input id="uf" type="text" placeholder="UF" />
-          </form>
-        </SectionAddress>
-      </InfoContainer>
-
-      <InfoContainer>
+      <InfoSummary>
         <h2>Cafés selecionados</h2>
         <Summary></Summary>
-      </InfoContainer>
+      </InfoSummary>
     </CheckoutContainer>
   )
 }
