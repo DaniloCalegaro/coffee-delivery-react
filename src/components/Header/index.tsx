@@ -3,7 +3,7 @@ import { MapPin, ShoppingCart } from 'phosphor-react'
 import { CartContainer, HeaderContainer } from './styles'
 import logo from '../../assets/images/logo.svg'
 import { Location } from '../Location'
-import { Cart } from '../Cart'
+import { Cart } from '../IconCart'
 import { NavLink } from 'react-router-dom'
 
 export function Header() {

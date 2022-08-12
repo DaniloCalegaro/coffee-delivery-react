@@ -5,6 +5,7 @@ export const PaymentContainer = styled.div`
   border-radius: 6px;
   padding: 2.5rem;
   margin-top: 1rem;
+  width: 100%;
 
   .paymentInfo {
     display: flex;
@@ -24,9 +25,15 @@ export const PaymentContainer = styled.div`
 export const MethodPayment = styled.div`
   margin-top: 2rem;
   display: flex;
+  flex-direction: column;
+
   gap: 0.75rem;
 
   button {
     flex: 1;
+  }
+
+  @media (min-width: 720px) {
+    flex-direction: row;
   }
 `

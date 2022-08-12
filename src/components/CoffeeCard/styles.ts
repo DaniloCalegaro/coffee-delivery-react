@@ -67,36 +67,11 @@ export const Price = styled.div`
   }
 `
 
-export const InputQuantity = styled.div`
+export const InsertCart = styled.div`
   display: flex;
   gap: 0.5rem;
 
-  div {
-    background: ${props => props.theme['base-input']};
-    border-radius: 6px;
-    padding: 0.2rem 0.8rem;
-
-    display: flex;
-    align-items: center;
-
-    > button {
-      background: none;
-      color: ${props => props.theme['purple']};
-      font-size: 1.3rem;
-      line-height: 0;
-      padding: 0;
-    }
-
-    > input {
-      border: none;
-      width: 2rem;
-      text-align: center;
-      background: none;
-      line-height: 0;
-    }
-  }
-
-  button {
+  > button {
     border: none;
     background: ${props => props.theme['purple-dark']};
     color: ${props => props.theme['purple-light']};

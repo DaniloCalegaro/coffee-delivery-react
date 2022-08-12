@@ -1,9 +1,9 @@
 import { MapPin } from 'phosphor-react'
-import { AddressContainer } from './styles'
+import { CheckountAddressContainer } from './styles'
 
 export function CheckountAddress() {
   return (
-    <AddressContainer>
+    <CheckountAddressContainer>
       <div className="aderressInfo">
         <i>
           <MapPin size={20} />
@@ -24,6 +24,6 @@ export function CheckountAddress() {
         <input id="city" type="text" placeholder="Cidade" />
         <input id="uf" type="text" placeholder="UF" />
       </form>
-    </AddressContainer>
+    </CheckountAddressContainer>
   )
 }

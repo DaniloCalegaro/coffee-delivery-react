@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-export const AddressContainer = styled.section`
+export const CheckountAddressContainer = styled.section`
   background: ${props => props.theme['base-card']};
   border-radius: 6px;
   padding: 2.5rem;
-  margin-top: 1rem;
 
   .aderressInfo {
     display: flex;

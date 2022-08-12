@@ -2,13 +2,14 @@ import { v4 as uuidv4 } from 'uuid'
 
 import {
   CoffeeCardContainer,
-  InputQuantity,
+  InsertCart,
   Price,
   PriceAndQuantity,
   TypeCoffee
 } from './styles'
 
 import { ShoppingCart } from 'phosphor-react'
+import { InputAmount } from '../InputAmount'
 
 interface CoffeeCardProps {
   image: string
@@ -42,16 +43,12 @@ export function CoffeeCard({
           <span>R$</span>
           <strong>{price.toFixed(2)}</strong>
         </Price>
-        <InputQuantity>
-          <div>
-            <button type="button"> - </button>
-            <input type="text" readOnly value="0"></input>
-            <button type="button"> + </button>
-          </div>
+        <InsertCart>
+          <InputAmount />
           <button type="button">
             <ShoppingCart size={20} />
           </button>
-        </InputQuantity>
+        </InsertCart>
       </PriceAndQuantity>
     </CoffeeCardContainer>
   )
