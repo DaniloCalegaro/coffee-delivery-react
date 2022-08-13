@@ -14,6 +14,7 @@ export const InputAmountContainer = styled.div`
     font-size: 1.3rem;
     line-height: 0;
     padding: 0;
+    cursor: pointer;
   }
 
   input {

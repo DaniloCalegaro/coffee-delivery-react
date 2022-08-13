@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-export const ItensCardContainer = styled.div`
+export const ItenCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: solid 1px;
 
   > div {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: repeat(2, 1fr);
 
     img {
       grid-row-start: 1;
@@ -28,14 +27,19 @@ export const ItensCardContainer = styled.div`
     }
 
     strong {
+      grid-row-start: 2;
+      grid-column-start: 2;
+      grid-row-end: 3;
+      grid-column-end: 4;
+
       text-align: end;
       margin-left: 2rem;
     }
 
     > button {
-      grid-row-start: 2;
+      grid-row-start: 3;
       grid-column-start: 3;
-      grid-row-end: 3;
+      grid-row-end: 4;
       grid-column-end: 4;
 
       width: 95%;
@@ -48,20 +52,28 @@ export const ItensCardContainer = styled.div`
 
       padding: 0.4rem;
 
+      cursor: pointer;
+
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 0.25rem;
 
+      transition: filter 0.2s;
+
       svg {
         color: ${props => props.theme['purple']};
+      }
+
+      &:hover {
+        filter: brightness(0.9);
       }
     }
 
     .input {
-      grid-row-start: 2;
+      grid-row-start: 3;
       grid-column-start: 2;
-      grid-row-end: 3;
+      grid-row-end: 4;
       grid-column-end: 3;
 
       margin-right: 0.5rem;
@@ -75,6 +87,41 @@ export const ItensCardContainer = styled.div`
       display: grid;
       grid-template-columns: 1fr 2fr 2fr 1fr;
       grid-template-rows: repeat(2, 1fr);
+
+      img {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 3;
+        grid-column-end: 2;
+      }
+
+      span {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-row-end: 2;
+        grid-column-end: 4;
+      }
+
+      strong {
+        grid-row-start: 1;
+        grid-column-start: 4;
+        grid-row-end: 2;
+        grid-column-end: 5;
+      }
+
+      > button {
+        grid-row-start: 2;
+        grid-column-start: 3;
+        grid-row-end: 3;
+        grid-column-end: 4;
+      }
+
+      .input {
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-row-end: 3;
+        grid-column-end: 3;
+      }
     }
   }
 

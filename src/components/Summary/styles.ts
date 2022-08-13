@@ -35,7 +35,7 @@ export const SummaryContainer = styled.aside`
       grid-row-end: 5;
       grid-column-end: 3;
 
-      background: ${props => props.theme['yellow-dark']};
+      background: ${props => props.theme['yellow']};
       color: ${props => props.theme['white']};
       border: none;
       padding: 0.75rem;
@@ -44,6 +44,14 @@ export const SummaryContainer = styled.aside`
 
       font-size: 0.875rem;
       text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: ${props => props.theme['yellow-dark']};
+      }
     }
   }
 `

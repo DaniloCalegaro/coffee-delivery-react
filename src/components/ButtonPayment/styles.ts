@@ -15,7 +15,6 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   padding: 1rem;
   font-size: 0.75rem;
   text-transform: uppercase;
-  line-height: 0;
 
   display: flex;
   align-items: center;

@@ -1,9 +1,12 @@
-import { ItensCart } from '../ItensCart/indesx'
+import { ItensCart } from '../ItenCart'
 import { SummaryContainer } from './styles'
 
 export function Summary() {
   return (
     <SummaryContainer>
+      <ItensCart />
+      <ItensCart />
+      <ItensCart />
       <ItensCart />
       <div className="sums">
         <span>Total de Itens</span>

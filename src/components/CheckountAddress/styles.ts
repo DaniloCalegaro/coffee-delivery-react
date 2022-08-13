@@ -31,9 +31,16 @@ export const CheckountAddressContainer = styled.section`
       background: ${props => props.theme['base-input']};
       border: 1px solid ${props => props.theme['base-button']};
       border-radius: 4px;
+      font-size: 0.875rem;
+
+      transition: border-color 0.2s;
 
       &::placeholder {
         font-size: 0.875rem;
+      }
+
+      &:focus {
+        border-color: ${props => props.theme['yellow-dark']};
       }
     }
 

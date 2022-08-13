@@ -1,10 +1,10 @@
 import { Trash } from 'phosphor-react'
 import { InputAmount } from '../InputAmount'
-import { ItensCardContainer } from './styles'
+import { ItenCardContainer } from './styles'
 
 export function ItensCart() {
   return (
-    <ItensCardContainer>
+    <ItenCardContainer>
       <div>
         <img src="./imagesCoffees/expresso.svg" alt="" />
         <span>Expresso Tradicional</span>
@@ -18,6 +18,6 @@ export function ItensCart() {
         </button>
         <strong>R$9,90</strong>
       </div>
-    </ItensCardContainer>
+    </ItenCardContainer>
   )
 }
