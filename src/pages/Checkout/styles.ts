@@ -4,7 +4,7 @@ export const CheckoutContainer = styled.main`
   margin-top: 2.5rem;
 
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   gap: 2rem;
 
