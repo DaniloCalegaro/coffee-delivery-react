@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import toast from 'react-hot-toast'
 
 import {
   CoffeeCardContainer,
@@ -11,7 +12,11 @@ import {
 import { ShoppingCart } from 'phosphor-react'
 import { InputAmount } from '../InputAmount'
 
+import { useContext, useState } from 'react'
+import { CartContext } from '../../contexts/CartContext'
+
 interface CoffeeCardProps {
+  id: number
   image: string
   typesCoffee: string[]
   name: string
@@ -20,13 +25,27 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
+  id,
   image,
   typesCoffee,
   name,
   description,
   price
 }: CoffeeCardProps) {
-  //console.log(typesCoffee)
+  const { addProduct } = useContext(CartContext)
+  const [amountProduct, setAmountProduct] = useState(0)
+
+  function handleSetAmountProduct(amount: number) {
+    setAmountProduct(amount)
+  }
+
+  function handleAddProduct(id: number, amount: number) {
+    if (amount > 0) {
+      addProduct(id, amount)
+    } else {
+      toast.error('Ops! Adicione quantas chícaras deseja')
+    }
+  }
 
   return (
     <CoffeeCardContainer>
@@ -44,8 +63,11 @@ export function CoffeeCard({
           <strong>{price.toFixed(2)}</strong>
         </Price>
         <InsertCart>
-          <InputAmount />
-          <button type="button">
+          <InputAmount handleSetAmountProduct={handleSetAmountProduct} />
+          <button
+            type="button"
+            onClick={() => handleAddProduct(id, amountProduct)}
+          >
             <ShoppingCart size={20} />
           </button>
         </InsertCart>

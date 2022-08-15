@@ -11,7 +11,8 @@ import listCoffeesJson from '../../../products.json'
 import ImgCoffeeDelivery from '../../assets/images/image-home.svg'
 import { CoffeeCard } from '../../components/CoffeeCard'
 
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
 interface ListCoffees {
   id: number
@@ -89,6 +90,7 @@ export function Home() {
           {coffees.map(coffee => (
             <li key={coffee.id}>
               <CoffeeCard
+                id={coffee.id}
                 image={coffee.image}
                 typesCoffee={coffee.typesCoffee}
                 name={coffee.name}

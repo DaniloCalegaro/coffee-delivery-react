@@ -1,20 +1,37 @@
-import { ItensCart } from '../ItenCart'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
+import { ItemCart } from '../ItemCart'
 import { SummaryContainer } from './styles'
 
 export function Summary() {
+  const { cart } = useContext(CartContext)
+
+  const totalItens = cart.reduce((sum, item) => {
+    return sum + item.price * item.amount
+  }, 0)
+
+  const deliveryFee = 3.5
+
+  const total = totalItens + deliveryFee
+
   return (
     <SummaryContainer>
-      <ItensCart />
-      <ItensCart />
-      <ItensCart />
-      <ItensCart />
+      {cart.map(item => (
+        <ItemCart
+          key={item.id}
+          image={item.image}
+          name={item.name}
+          amount={item.amount}
+          price={item.price}
+        />
+      ))}
       <div className="sums">
         <span>Total de Itens</span>
-        <strong>R$ 29,70</strong>
+        <strong>R$ {totalItens.toFixed(2)}</strong>
         <span>Entrega</span>
-        <strong>R$ 3,50</strong>
+        <strong>R$ {deliveryFee.toFixed(2)}</strong>
         <span>Total</span>
-        <strong>R$ 33,20</strong>
+        <strong>R$ {total.toFixed(2)}</strong>
         <button type="button">Confirmar pedido</button>
       </div>
     </SummaryContainer>

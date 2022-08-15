@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 import { ThemeProvider } from 'styled-components'
 import { CartContextProvider } from './contexts/CartContext'
 import { Router } from './Router'
@@ -11,6 +12,7 @@ export default function App() {
       <BrowserRouter>
         <CartContextProvider>
           <Router />
+          <Toaster />
         </CartContextProvider>
       </BrowserRouter>
       <GlobalStyle />
