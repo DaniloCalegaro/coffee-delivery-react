@@ -11,7 +11,6 @@ import listCoffeesJson from '../../../products.json'
 import ImgCoffeeDelivery from '../../assets/images/image-home.svg'
 import { CoffeeCard } from '../../components/CoffeeCard'
 
-import ImgExpresso from '../../assets/images/expresso.svg'
 import { useEffect, useState } from 'react'
 
 interface ListCoffees {
@@ -40,8 +39,6 @@ export function Home() {
     }
     getCoffees()
   }, [])
-
-  const expressoType = ['tradicional', 'com leite']
 
   return (
     <HomeContainer>
