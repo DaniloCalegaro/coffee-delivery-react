@@ -10,13 +10,25 @@ interface CartProviderProps {
 
 type PaymentMethod = 'credit card' | 'debit card' | 'money' | null
 
+interface AddressDetails {
+  cep: string
+  street: string
+  number: string
+  complement: string
+  district: string
+  city: string
+  uf: string
+}
+
 interface CartContextData {
   cart: ProductInCart[]
   payment: PaymentMethod
+  address: AddressDetails
   addProduct: (productId: number, amount: number) => void
   removeProduct: (productId: number) => void
   updateProduct: (productId: number, amount: number) => void
   selectPayment: (method: PaymentMethod) => void
+  addAddress: (data: AddressDetails) => void
 }
 
 interface ProductInCart extends Product {
@@ -28,6 +40,7 @@ export const CartContext = createContext<CartContextData>({} as CartContextData)
 export function CartContextProvider({ children }: CartProviderProps) {
   const [cart, setCard] = useState<ProductInCart[]>([])
   const [payment, setPayment] = useState<PaymentMethod>(null)
+  const [address, setAddress] = useState<AddressDetails>({} as AddressDetails)
 
   function addProduct(productId: number, amountAdd: number) {
     const updateCart = [...cart]
@@ -79,15 +92,21 @@ export function CartContextProvider({ children }: CartProviderProps) {
     setPayment(method)
   }
 
+  function addAddress(data: AddressDetails) {
+    setAddress(data)
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart,
+        payment,
+        address,
         addProduct,
         removeProduct,
         updateProduct,
-        payment,
-        selectPayment
+        selectPayment,
+        addAddress
       }}
     >
       {children}

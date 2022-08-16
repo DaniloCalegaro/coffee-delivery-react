@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 
 export function CheckountAddress() {
   const navigate = useNavigate()
-  const { cart, payment } = useContext(CartContext)
+  const { cart, payment, addAddress } = useContext(CartContext)
 
   const NewRequestCoffeeFormDataSchema = zod.object({
     cep: zod.string().min(3),
@@ -42,6 +42,15 @@ export function CheckountAddress() {
   function handleSubmitNewAddress(data: NewRequestCoffeeFormData) {
     if (cart.length > 0 && payment) {
       console.log(data, payment, cart)
+      addAddress({
+        cep: data.cep,
+        city: data.city,
+        complement: data.complement!,
+        district: data.district,
+        number: data.number,
+        street: data.street,
+        uf: data.uf
+      })
       reset()
       navigate('/success')
     } else if (payment === null) {

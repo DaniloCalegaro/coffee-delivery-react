@@ -7,8 +7,23 @@ import {
 } from './styles'
 
 import ImgDelivery from '../../assets/images/delivery.svg'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
+const METHOD_PAYMENT = {
+  money: 'Dinheiro',
+  'credit card': 'Cartão de Crédito',
+  'debit card': 'Cartão de Débito'
+} as const
+
+interface PaymentString {
+  paymentMethod: keyof typeof METHOD_PAYMENT
+}
 export function Success() {
+  const { address, payment } = useContext(CartContext)
+
+  const paymentMethod = payment
+
   return (
     <SuccessContainer>
       <aside>
@@ -24,9 +39,9 @@ export function Success() {
               <span>
                 Entrega em{' '}
                 <strong>
-                  Rua João Martinelli, 102 <br />
+                  {address.street}, {address.number} <br />
                 </strong>
-                Farrapos - Porto Alegre, RS
+                {address.district} - {address.city}, {address.uf}
               </span>
             </div>
           </AddressDelivery>
@@ -46,7 +61,7 @@ export function Success() {
             </i>
             <div>
               <span>Pagamento na entrega</span>
-              <strong>Cartão de Crédito</strong>
+              <strong>{paymentMethod}</strong>
             </div>
           </FormOfPayment>
         </div>
