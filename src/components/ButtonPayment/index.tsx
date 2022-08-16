@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ButtonContainer } from './styles'
 
 interface ButtonPaymentProps {
@@ -11,8 +12,13 @@ export function ButtonPayment({
   icon,
   seleted = false
 }: ButtonPaymentProps) {
+  const [activePayment, setActivePayment] = useState(false)
+
   return (
-    <ButtonContainer seleted={seleted}>
+    <ButtonContainer
+      seleted={activePayment}
+      onClick={() => setActivePayment(!activePayment)}
+    >
       {icon}
       {name}
     </ButtonContainer>

@@ -43,7 +43,7 @@ export function CoffeeCard({
     if (amount > 0) {
       addProduct(id, amount)
     } else {
-      toast.error('Ops! Adicione quantas chícaras deseja')
+      toast.error('Ops! Adicione quantas cafés deseja')
     }
   }
 

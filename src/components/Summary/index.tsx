@@ -10,7 +10,7 @@ export function Summary() {
     return sum + item.price * item.amount
   }, 0)
 
-  const deliveryFee = 3.5
+  const deliveryFee = !!cart.length ? 3.5 : 0
 
   const total = totalItens + deliveryFee
 
@@ -19,6 +19,7 @@ export function Summary() {
       {cart.map(item => (
         <ItemCart
           key={item.id}
+          id={item.id}
           image={item.image}
           name={item.name}
           amount={item.amount}

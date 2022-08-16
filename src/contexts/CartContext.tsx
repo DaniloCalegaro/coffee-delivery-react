@@ -8,16 +8,11 @@ interface CartProviderProps {
   children: ReactNode
 }
 
-interface UpdateProductAmount {
-  productId: number
-  amount: number
-}
-
 interface CartContextData {
   cart: ProductInCart[]
   addProduct: (productId: number, amount: number) => void
-  //removeProduct: (productId: Product) => void
-  //updateProduct: ({ productId, amount }: UpdateProductAmount) => void
+  removeProduct: (productId: number) => void
+  updateProduct: (productId: number, amount: number) => void
 }
 
 interface ProductInCart extends Product {
@@ -50,12 +45,34 @@ export function CartContextProvider({ children }: CartProviderProps) {
     toast.success('Café adicionado ao carrinho')
   }
 
-  console.log(cart)
+  function updateProduct(productId: number, amount: number) {
+    const updateCart = [...cart]
+    const productExists = updateCart.find(item => item.id === productId)
 
-  function updateProductAmount({ productId, amount }: UpdateProductAmount) {}
+    if (productExists) {
+      productExists.amount = amount
+      setCard(updateCart)
+    } else {
+      toast.error('Falha na atualização da quantidade do produto')
+    }
+  }
+
+  function removeProduct(productId: number) {
+    const updateCart = [...cart]
+    const productIndex = updateCart.findIndex(
+      product => product.id === productId
+    )
+    if (productIndex >= 0) {
+      updateCart.splice(productIndex, 1)
+      setCard(updateCart)
+    } else {
+      toast.error('Erro na remoção do produto')
+    }
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, addProduct /*, removeProduct, updateProduct*/ }}
+      value={{ cart, addProduct, removeProduct, updateProduct }}
     >
       {children}
     </CartContext.Provider>

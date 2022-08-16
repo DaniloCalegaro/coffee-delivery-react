@@ -1,4 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
+import { useState } from 'react'
 import { ButtonPayment } from '../ButtonPayment'
 import { MethodPayment, PaymentContainer } from './styles'
 
@@ -22,7 +23,6 @@ export function Payment() {
         <ButtonPayment
           name="Cartão de crédito"
           icon={<CreditCard size={20} />}
-          seleted
         />
         <ButtonPayment name="Cartão de débito" icon={<Bank size={20} />} />
         <ButtonPayment name="Dinheiro" icon={<Money size={20} />} />
