@@ -15,6 +15,10 @@ export function Summary() {
 
   const total = totalItens + deliveryFee
 
+  // function handleConfirmOrder() {
+  //   console.log('Pedido enviado')
+  // }
+
   return (
     <SummaryContainer>
       {cart.map(item => (

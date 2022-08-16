@@ -1,12 +1,19 @@
-import { FormProvider, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 import { MapPin } from 'phosphor-react'
 import { CheckountAddressContainer } from './styles'
+import { CartContext } from '../../contexts/CartContext'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function CheckountAddress() {
+  const navigate = useNavigate()
+  const { cart, payment } = useContext(CartContext)
+
   const NewRequestCoffeeFormDataSchema = zod.object({
     cep: zod.string().min(3),
     street: zod.string().min(5),
@@ -33,8 +40,15 @@ export function CheckountAddress() {
   } = newRequestCoffeeForm
 
   function handleSubmitNewAddress(data: NewRequestCoffeeFormData) {
-    console.log(data)
-    reset()
+    if (cart.length > 0 && payment) {
+      console.log(data, payment, cart)
+      reset()
+      navigate('/success')
+    } else if (payment === null) {
+      toast.error('Selecione o metodo de pagamento')
+    } else if (cart.length === 0) {
+      toast.error('Você não tem itens no carrinho')
+    }
   }
 
   return (
