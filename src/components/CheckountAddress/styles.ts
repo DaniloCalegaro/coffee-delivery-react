@@ -42,6 +42,10 @@ export const CheckountAddressContainer = styled.section`
       &:focus {
         border-color: ${props => props.theme['yellow-dark']};
       }
+
+      &[aria-invalid='true'] {
+        background: ${props => props.theme['yellow-light']};
+      }
     }
 
     @media (min-width: 720px) {
@@ -57,7 +61,7 @@ export const CheckountAddressContainer = styled.section`
         grid-column-end: 2;
       }
 
-      #road {
+      #street {
         grid-row-start: 2;
         grid-column-start: 1;
         grid-row-end: 3;

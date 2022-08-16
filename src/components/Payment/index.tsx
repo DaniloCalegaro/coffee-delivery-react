@@ -1,9 +1,12 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 import { ButtonPayment } from '../ButtonPayment'
 import { MethodPayment, PaymentContainer } from './styles'
 
 export function Payment() {
+  const { payment } = useContext(CartContext)
+
   return (
     <PaymentContainer>
       <div className="paymentInfo">
@@ -22,10 +25,22 @@ export function Payment() {
       <MethodPayment>
         <ButtonPayment
           name="Cartão de crédito"
+          value="credit card"
           icon={<CreditCard size={20} />}
+          selected={payment === 'credit card'}
         />
-        <ButtonPayment name="Cartão de débito" icon={<Bank size={20} />} />
-        <ButtonPayment name="Dinheiro" icon={<Money size={20} />} />
+        <ButtonPayment
+          name="Cartão de débito"
+          value="debit card"
+          icon={<Bank size={20} />}
+          selected={payment === 'debit card'}
+        />
+        <ButtonPayment
+          name="Dinheiro"
+          value="money"
+          icon={<Money size={20} />}
+          selected={payment === 'money'}
+        />
       </MethodPayment>
     </PaymentContainer>
   )

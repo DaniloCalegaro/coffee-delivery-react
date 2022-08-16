@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+
 import { CartContext } from '../../contexts/CartContext'
 import { ItemCart } from '../ItemCart'
 import { SummaryContainer } from './styles'
@@ -33,7 +34,9 @@ export function Summary() {
         <strong>R$ {deliveryFee.toFixed(2)}</strong>
         <span>Total</span>
         <strong>R$ {total.toFixed(2)}</strong>
-        <button type="button">Confirmar pedido</button>
+        <button type="submit" form="address-form">
+          Confirmar pedido
+        </button>
       </div>
     </SummaryContainer>
   )

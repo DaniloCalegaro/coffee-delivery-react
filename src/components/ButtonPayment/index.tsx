@@ -1,23 +1,47 @@
-import { useState } from 'react'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
+
 import { ButtonContainer } from './styles'
 
 interface ButtonPaymentProps {
+  value: string
   name: string
   icon?: React.ReactNode
-  seleted?: boolean
+  selected?: boolean
 }
 
 export function ButtonPayment({
+  value,
   name,
   icon,
-  seleted = false
+  selected = false
 }: ButtonPaymentProps) {
-  const [activePayment, setActivePayment] = useState(false)
+  const { selectPayment } = useContext(CartContext)
+
+  function handleSelectPayment(method: string) {
+    switch (method) {
+      case 'credit card':
+        selectPayment('credit card')
+        break
+
+      case 'debit card':
+        selectPayment('debit card')
+        break
+
+      case 'money':
+        selectPayment('money')
+        break
+
+      default:
+        selectPayment(null)
+    }
+  }
 
   return (
     <ButtonContainer
-      seleted={activePayment}
-      onClick={() => setActivePayment(!activePayment)}
+      seleted={selected}
+      value={value}
+      onClick={() => handleSelectPayment(value)}
     >
       {icon}
       {name}

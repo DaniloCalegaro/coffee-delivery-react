@@ -8,11 +8,15 @@ interface CartProviderProps {
   children: ReactNode
 }
 
+type PaymentMethod = 'credit card' | 'debit card' | 'money' | null
+
 interface CartContextData {
   cart: ProductInCart[]
+  payment: PaymentMethod
   addProduct: (productId: number, amount: number) => void
   removeProduct: (productId: number) => void
   updateProduct: (productId: number, amount: number) => void
+  selectPayment: (method: PaymentMethod) => void
 }
 
 interface ProductInCart extends Product {
@@ -23,6 +27,7 @@ export const CartContext = createContext<CartContextData>({} as CartContextData)
 
 export function CartContextProvider({ children }: CartProviderProps) {
   const [cart, setCard] = useState<ProductInCart[]>([])
+  const [payment, setPayment] = useState<PaymentMethod>(null)
 
   function addProduct(productId: number, amountAdd: number) {
     const updateCart = [...cart]
@@ -70,9 +75,20 @@ export function CartContextProvider({ children }: CartProviderProps) {
     }
   }
 
+  function selectPayment(method: PaymentMethod) {
+    setPayment(method)
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, addProduct, removeProduct, updateProduct }}
+      value={{
+        cart,
+        addProduct,
+        removeProduct,
+        updateProduct,
+        payment,
+        selectPayment
+      }}
     >
       {children}
     </CartContext.Provider>
