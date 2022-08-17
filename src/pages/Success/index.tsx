@@ -10,19 +10,24 @@ import ImgDelivery from '../../assets/images/delivery.svg'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
-const METHOD_PAYMENT = {
-  money: 'Dinheiro',
-  'credit card': 'Cartão de Crédito',
-  'debit card': 'Cartão de Débito'
-} as const
-
-interface PaymentString {
-  paymentMethod: keyof typeof METHOD_PAYMENT
+type PaymentMethod = 'credit card' | 'debit card' | 'money' | null
+interface PaymentMethodData {
+  money: string
+  'credit card': string
+  'debit card': string
 }
+
 export function Success() {
   const { address, payment } = useContext(CartContext)
 
-  const paymentMethod = payment
+  const paymentMethodString = (value: PaymentMethod) => {
+    const paymentMethod = {
+      money: 'Dinheiro',
+      'credit card': 'Cartão de Crédito',
+      'debit card': 'Cartão de Débito'
+    }
+    return paymentMethod[value!]
+  }
 
   return (
     <SuccessContainer>
@@ -61,7 +66,7 @@ export function Success() {
             </i>
             <div>
               <span>Pagamento na entrega</span>
-              <strong>{paymentMethod}</strong>
+              <strong>{paymentMethodString(payment)}</strong>
             </div>
           </FormOfPayment>
         </div>
