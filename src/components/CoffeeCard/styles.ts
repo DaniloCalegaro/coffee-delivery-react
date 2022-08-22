@@ -5,6 +5,8 @@ export const CoffeeCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  height: 20rem;
+
   background: ${props => props.theme['base-card']};
   border-radius: 6px 36px;
 
@@ -47,7 +49,7 @@ export const TypeCoffee = styled.div`
 `
 
 export const PriceAndQuantity = styled.div`
-  margin-top: 2.3rem;
+  margin-top: auto;
   width: 100%;
 
   display: flex;
