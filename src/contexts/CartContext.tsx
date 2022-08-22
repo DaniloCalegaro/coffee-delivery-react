@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
 import { Product } from '../types'
@@ -39,9 +39,21 @@ interface ProductInCart extends Product {
 export const CartContext = createContext<CartContextData>({} as CartContextData)
 
 export function CartContextProvider({ children }: CartProviderProps) {
-  const [cart, setCard] = useState<ProductInCart[]>([])
+  const [cart, setCard] = useState<ProductInCart[]>(() => {
+    const storageCart = localStorage.getItem('@CoffeDelivery:cart')
+
+    if (storageCart) {
+      return JSON.parse(storageCart)
+    }
+
+    return []
+  })
   const [payment, setPayment] = useState<PaymentMethod>(null)
   const [address, setAddress] = useState<AddressDetails>({} as AddressDetails)
+
+  useEffect(() => {
+    localStorage.setItem('@CoffeDelivery:cart', JSON.stringify(cart))
+  }, [cart])
 
   function addProduct(productId: number, amountAdd: number) {
     const updateCart = [...cart]
