@@ -7,7 +7,7 @@ import {
 } from './styles'
 
 import ImgDelivery from '../../assets/images/delivery.svg'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
 type PaymentMethod = 'credit card' | 'debit card' | 'money' | null
@@ -18,7 +18,11 @@ interface PaymentMethodData {
 }
 
 export function Success() {
-  const { address, payment } = useContext(CartContext)
+  const { address, payment, resetCart } = useContext(CartContext)
+
+  useEffect(() => {
+    resetCart()
+  }, [])
 
   const paymentMethodString = (value: PaymentMethod) => {
     const paymentMethod = {

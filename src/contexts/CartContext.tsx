@@ -29,6 +29,7 @@ interface CartContextData {
   updateProduct: (productId: number, amount: number) => void
   selectPayment: (method: PaymentMethod) => void
   addAddress: (data: AddressDetails) => void
+  resetCart: () => void
 }
 
 interface ProductInCart extends Product {
@@ -96,6 +97,10 @@ export function CartContextProvider({ children }: CartProviderProps) {
     setAddress(data)
   }
 
+  function resetCart() {
+    setCard([])
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -106,7 +111,8 @@ export function CartContextProvider({ children }: CartProviderProps) {
         removeProduct,
         updateProduct,
         selectPayment,
-        addAddress
+        addAddress,
+        resetCart
       }}
     >
       {children}
