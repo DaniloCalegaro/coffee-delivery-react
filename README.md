@@ -11,6 +11,7 @@
     - [Captura de Tela](#captura-de-tela)
     - [Links](#links)
   - [Desenvolvimento do conhecimento](#desenvolvimento-do-conhecimento)
+    - [Recursos utilizados](#recursos-utilizados)
   - [Pré-requisitos](#pré-requisitos)
   - [Autor](#autor)
 
@@ -37,6 +38,15 @@ Dentro da página Checkout a validação dos formulários fica por conta dos `re
 
 E para finalizar, a comunicação de estados dos elementos de páginas distintas está sendo realizada por contextos do ReactJS - `context-api`.
 
+### Recursos utilizados
+
+- [yarn](https://yarnpkg.com/) - Gerenciador de pacotes do projeto.
+- [Vite](https://vitejs.dev/) - Criação da estrutura React.
+- [ReactJS](https://pt-br.reactjs.org/) - Biblioteca React.
+- [TypeScrip](https://www.typescriptlang.org/) - Uma linguagem de programação fortemente tipada que se baseia em JavaScript.
+- [React Hook Form](https://react-hook-form.com/) - Validação dos campos do formulário.
+- [Zod](https://github.com/colinhacks/zod) - Construtor de esquema para análise e validação.
+- [PhosphorIcons](https://phosphoricons.com/) - Pacote de ícones 
 
 ## Pré-requisitos
 
